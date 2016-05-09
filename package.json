@@ -1,0 +1,15 @@
+{
+  "name": "TagManager",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node node_modules/react-native/local-cli/cli.js start --port=3000"
+  },
+  "dependencies": {
+    "react": "^0.14.8",
+    "react-native": "^0.24.1",
+    "react-native-button": "^1.4.2",
+    "react-native-navbar": "^1.4.2",
+    "tcomb-form-native": "^0.4.2"
+  }
+}
