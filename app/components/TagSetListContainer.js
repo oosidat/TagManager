@@ -8,18 +8,18 @@ import React, {
   View
 } from 'react-native';
 
+import NavigationBar from 'react-native-navbar';
 import styles from '../styles/styles';
+
+import CopyNotification from './CopyNotification';
 import TagSetList from './TagSetList';
 import TagSetEdit from './TagSetEdit';
-import CopyNotification from './CopyNotification';
-
-import NavigationBar from 'react-native-navbar';
 
 class TagSetListContainer extends Component {
   constructor() {
     super();
     this.state = {
-      copied: false,
+      showCopied: false,
       items: [
         {name: 'Learn'},
         {name: 'Make tagsets'},
@@ -49,15 +49,16 @@ class TagSetListContainer extends Component {
     this.openItem = this.openItem.bind(this);
     this.updateItem = this.updateItem.bind(this);
   }
+
   copyTags(rowData, rowID) {
     Clipboard.setString(rowData.tags);
-    this.setState({ copied: true });
+    this.setState({ showCopied: true });
     setTimeout(() => {
-      this.setState({ copied: false })
-    }, 800);
+      this.setState({ showCopied: false })
+    }, 1500);
   }
+
   openItem(rowData, rowID) {
-    console.log('rowData: ', rowData);
     this.props.navigator.push({
       title: rowData && rowData.name,
       component: TagSetEdit,
@@ -68,6 +69,7 @@ class TagSetListContainer extends Component {
       }
     });
   }
+
   updateItem(item, index) {
     const items = this.state.items;
     if (index) {
@@ -78,6 +80,7 @@ class TagSetListContainer extends Component {
     this.setState({items: items});
     this.props.navigator.pop();
   }
+
   render() {
     const rightButtonConfig = {
       title: 'Add',
@@ -102,7 +105,7 @@ class TagSetListContainer extends Component {
           onPressItem={this.openItem}
           onLongPressItem={this.copyTags}
         />
-        { this.state.copied ? <CopyNotification /> : null }
+        { this.state.showCopied ? <CopyNotification /> : null }
       </View>
     );
   }

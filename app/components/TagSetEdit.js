@@ -29,6 +29,7 @@ const options = {
     }
   }
 }
+
 class TagSetEdit extends Component {
   constructor() {
     super();
@@ -57,9 +58,9 @@ class TagSetEdit extends Component {
     const titleConfig = {
       title: 'Edit'
     }
-    
+
     return (
-      <View style={styles.todo}>
+      <View style={styles.tagSetEdit}>
         <NavigationBar
           title={titleConfig}
           rightButton={rightButtonConfig}

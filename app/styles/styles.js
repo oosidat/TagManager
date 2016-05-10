@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'flex-start',
     padding: 15,
-    backgroundColor: '#ffffff',
+    backgroundColor: '#ffffff'
   },
 
   copyNotification: {
@@ -30,10 +30,10 @@ const styles = StyleSheet.create({
   copyNotificationText: {
     fontSize: 14,
     alignSelf: 'center',
-    color: 'white'
+    color: 'white',
   },
-  
-  todo: {
+
+  tagSetEdit: {
     marginTop: 10,
     flex: 1,
     padding: 10,

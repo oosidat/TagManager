@@ -14,14 +14,26 @@ class CopyNotification extends Component {
       fadeAnim: new Animated.Value(0)
     };
   }
+
   componentDidMount() {
-    Animated.timing(
-      this.state.fadeAnim,
-      {
-        duration: 400,
-        toValue: 1
-      }
-    ).start();
+    Animated.sequence([
+      Animated.timing(
+        this.state.fadeAnim,
+        {
+          duration: this.props.fadeInDuration,
+          toValue: 1
+        }
+      ),
+      Animated.timing(
+        this.state.fadeAnim,
+        {
+          delay: this.props.fadeOutDelay,
+          duration: this.props.fadeOutDuration,
+          toValue: 0
+        }
+      )
+    ])
+    .start();
   }
 
   render() {
@@ -31,6 +43,12 @@ class CopyNotification extends Component {
       </Animated.View>
     );
   }
+}
+
+CopyNotification.defaultProps ={
+  fadeInDuration: 300,
+  fadeOutDelay: 700,
+  fadeOutDuration: 500
 }
 
 export default CopyNotification;

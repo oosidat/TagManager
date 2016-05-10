@@ -7,14 +7,12 @@ import React, {
 
 import styles from './app/styles/styles';
 import TagSetListContainer from './app/components/TagSetListContainer';
-import TagSetEdit from './app/components/TagSetEdit';
 
 function renderScene(route, navigator) {
   return <route.component route={route} navigator={navigator} {...route.passProps} />;
 }
 
 class TagManager extends Component {
-
   constructor() {
     super();
     this.state = {
